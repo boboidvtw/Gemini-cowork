@@ -68,5 +68,5 @@
 If you find this project helpful, consider buying me a coffee!
 如果您覺得這個專案對您有幫助，歡迎贊助一杯咖啡！
 
-[![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/YOUR_PAYPAL_USERNAME)
+[![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/boboidvtw168)
 
