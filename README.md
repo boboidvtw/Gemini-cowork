@@ -17,6 +17,9 @@
     *   自動清理舊的狀態檔案 (`.circuit_breaker_state`, `.ralph_state.json`)，確保每次執行都是乾淨的開始 (Fresh Start)。
 *   **自主執行 (Autonomous Execution)**:
     *   後端整合 `ralph_loop.py`，支援多迭代 (Multi-turn) 的自主開發循環。
+*   **多模型支援 (Multi-Backend)**:
+    *   **Gemini**: 支援 `gemini-2.0-flash-exp` 等官方模型 (包含重試機制)。
+    *   **Ollama (Local)**: 支援本地模型 (如 `qwen2.5-coder`)，具備自動 Port 修正、狀態記憶 (Context Persistence) 與無 Rate Limit 模式，實現高速開發體驗。
 
 ## 📂 檔案結構 (File Structure)
 
