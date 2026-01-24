@@ -1,0 +1,18 @@
+# Temporary execution states
+.circuit_breaker_state
+.ralph_state.json
+
+# Generated artifacts
+PROMPT.md
+walkthrough.md
+*.log
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE/System
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
