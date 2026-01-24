@@ -1,6 +1,6 @@
 # Gemini Cowork
 
-**Gemini Cowork** 是一個基於 Python 的 GUI 應用程式，旨在作為您的 AI 結對程式設計夥伴 (AI Pair Programmer)。它封裝了強大的自主代理 (Autonomous Agent) 邏輯，讓您能夠透過簡單的圖形介面指派複雜的開發任務。
+**Gemini Cowork** 是一個基於 Python 的 GUI 應用程式，旨在作為您的 AI 程式設計夥伴 (AI Pair Programmer)。它封裝了強大的自主代理 (Autonomous Agent) 邏輯，讓您能夠透過簡單的圖形介面指派複雜的開發任務。
 
 ## 🚀 功能特點 (Features)
 
