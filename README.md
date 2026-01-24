@@ -1,75 +1,76 @@
 # Gemini Cowork
 
-**Gemini Cowork** 是一個基於 Python 的 GUI 應用程式，旨在作為您的 AI 程式設計夥伴 (AI Pair Programmer)。它封裝了強大的自主代理 (Autonomous Agent) 邏輯，讓您能夠透過簡單的圖形介面指派複雜的開發任務。
+**Gemini Cowork** is a Python-based GUI application designed to be your **AI Pair Programmer**. It encapsulates powerful Autonomous Agent logic, allowing you to assign complex development tasks through a simple graphical interface.
 
-## 🚀 功能特點 (Features)
+[中文說明 (Chinese Version)](README-ZH.md)
 
-*   **直覺的圖形介面 (GUI)**:
-    *   使用 Dark Mode 設計，長時間使用不刺眼。
-    *   提供工作目錄 (Work Directory) 選擇器。
-    *   支援多行任務描述輸入。
-    *   即時顯示 Agent 執行日誌 (Real-time Logs)。
-*   **自動化上下文注入 (Context Injection)**:
-    *   自動掃描目標目錄結構，讓 Agent 理解專案現況。
-    *   自動讀取全域 **Skills** (`Gemini-Skill.md`) 與 **MCP Tools** (`Gemini-MCP.md`) 說明，賦予 Agent 使用高階工具的能力。
-*   **任務生成 (Prompt Generation)**:
-    *   根據您的輸入自動生成 `PROMPT.md`，作為 Agent 的任務指導書。
-    *   自動清理舊的狀態檔案 (`.circuit_breaker_state`, `.ralph_state.json`)，確保每次執行都是乾淨的開始 (Fresh Start)。
-*   **自主執行 (Autonomous Execution)**:
-    *   後端整合 `ralph_loop.py`，支援多迭代 (Multi-turn) 的自主開發循環。
-*   **多模型支援 (Multi-Backend)**:
-    *   **Gemini**: 支援 `gemini-2.0-flash-exp` 等官方模型 (包含重試機制)。
-    *   **Ollama (Local)**: 支援本地模型 (如 `qwen2.5-coder`)，具備自動 Port 修正、狀態記憶 (Context Persistence) 與無 Rate Limit 模式，實現高速開發體驗。
+## 🚀 Features
 
-## 📂 檔案結構 (File Structure)
+*   **Intuitive GUI**:
+    *   Dark Mode design for eye comfort during long coding sessions.
+    *   Work Directory selector.
+    *   Multi-line task description input.
+    *   Real-time Agent logs display.
+*   **Automated Context Injection**:
+    *   Automatically scans the target directory structure to let the Agent understand the project context.
+    *   Automatically reads global **Skills** (`Gemini-Skill.md`) and **MCP Tools** (`Gemini-MCP.md`) documentation, empowering the Agent with advanced capabilities.
+*   **Prompt Generation**:
+    *   Automatically generates `PROMPT.md` based on your input as the Agent's instruction manual.
+    *   Auto-cleans old state files (`.circuit_breaker_state`, `.ralph_state.json`) to ensure a Fresh Start for every run.
+*   **Autonomous Execution**:
+    *   Integrated with `ralph_loop.py` backend to support multi-turn autonomous development loops.
+*   **Multi-Backend Support**:
+    *   **Gemini**: Supports official models like `gemini-2.0-flash-exp` (includes retry mechanisms).
+    *   **Ollama (Local)**: Supports local models (e.g., `qwen2.5-coder`) with automatic Port correction, Context Persistence, and No-Rate-Limit mode for high-speed development.
 
-本專案主要由一個啟動腳本與全域 Python Scripts 組成：
+## 📂 File Structure
+
+This project consists of a launcher script and global Python Scripts:
 
 *   **`launch_cowork.bat`**: 
-    *   本地啟動腳本。負責呼叫 Python 環境並啟動 GUI。
-    *   執行指令: `.\launch_cowork.bat`
-*   **核心邏輯 (Global Scripts)**:
-    *   這些腳本位於您的全域 Skills 目錄中 (`.antigravity/skills/ralph_loop/scripts/`)，本專案直接引用之。
-    *   `gemini_cowork_gui.py`: Tkinter GUI 介面程式碼。
-    *   `gemini_cowork.py`: 負責環境掃描、Prompt 生成與 Process 管理的中介層。
-    *   `ralph_loop.py`: 實際執行 AI 決策與工具呼叫的主迴圈。
+    *   Local launch script. Responsible for calling the Python environment and starting the GUI.
+    *   Command: `.\launch_cowork.bat`
+*   **Core Logic (Global Scripts)**:
+    *   These scripts reside in your global Skills directory (`.antigravity/skills/ralph_loop/scripts/`) and are referenced directly.
+    *   `gemini_cowork_gui.py`: Tkinter GUI interface code.
+    *   `gemini_cowork.py`: Middleware for environment scanning, Prompt generation, and Process management.
+    *   `ralph_loop.py`: The main loop executing AI decisions and tool calls.
 
-## 🛠️ 使用指南 (Usage)
+## 🛠️ Usage
 
-1.  **啟動程式**:
-    在專案根目錄下的 PowerShell 執行：
+1.  **Launch Application**:
+    Run in PowerShell from the project root:
     ```powershell
     .\launch_cowork.bat
     ```
 
-2.  **設定工作環境**:
-    *   **Work Directory**: 選擇您要讓 AI 進行開發的專案資料夾 (預設為當前目錄)。
-    *   **Task Description**: 用自然語言詳細描述您的需求 (例如："建立一個 Python 貪食蛇遊戲，並使用 Pygame 函式庫")。
+2.  **Configure Environment**:
+    *   **Work Directory**: Select the project folder you want the AI to develop in (defaults to current directory).
+    *   **Task Description**: Describe your requirements in natural language (e.g., "Create a Python Snake game using Pygame library").
 
-3.  **執行與監控**:
-    *   點擊 **🚀 Start Cowork** 開始任務。
-    *   透過下方黑色終端機視窗監控執行進度。
-    *   完成後，Agent 會在目標目錄產生 `PROMPT.md` (任務檔) 與 `walkthrough.md` (執行報告，如果有的話)。
+3.  **Execute & Monitor**:
+    *   Click **🚀 Start Cowork** to begin the task.
+    *   Monitor progress via the black terminal window at the bottom.
+    *   Upon completion, the Agent will generate `PROMPT.md` (Task File) and `walkthrough.md` (Report) in the target directory.
 
-4.  **停止與複製**:
-    *   **🛑 Stop**: 強制終止目前的 Agent 程序。
-    *   **📋 Copy Logs**: 將目前的執行日誌複製到剪貼簿，方便除錯或分享。
+4.  **Control & Logs**:
+    *   **🛑 Stop**: Forcefully terminate the current Agent process.
+    *   **📋 Copy Logs**: Copy current logs to clipboard for debugging or sharing.
+    *   **🗑️ Clear Logs**: Clear the current log window.
 
-## 🔧 技術細節 (Technical Details)
+## 🔧 Technical Details
 
 *   **Backend**: Python, `subprocess` module for process management.
 *   **GUI Framework**: Tkinter.
-*   **Encoding**: 強制使用 UTF-8 處理 I/O，並支援中文顯示 (Microsoft JhengHei UI / NSimSun 字型)。
+*   **Encoding**: Enforced UTF-8 for I/O, supporting Chinese display (Microsoft JhengHei UI / NSimSun fonts).
 *   **Architecture**: Local Launcher -> Global Logic Script -> Generic Agent Loop.
 
-## 📝 注意事項 (Notes)
+## 📝 Notes
 
-*   確保您的環境已安裝 Python 並配置好相關依賴。
+*   Ensure Python is installed and dependencies are configured in your environment.
 
-## ❤️ Support (贊助)
+## ❤️ Support
 
 If you find this project helpful, consider buying me a coffee!
-如果您覺得這個專案對您有幫助，歡迎贊助一杯咖啡！
 
 [![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/boboidvtw168)
-
