@@ -16,3 +16,6 @@ __pycache__/
 .idea/
 Thumbs.db
 Desktop.ini
+
+# 執行期對話紀錄（2026-11-11 移出版控）
+.ollama_history.json
